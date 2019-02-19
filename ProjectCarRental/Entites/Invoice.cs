@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace ProjectCarRental.Entites
 {
@@ -18,6 +19,16 @@ namespace ProjectCarRental.Entites
         public double TotalPayment {
 
             get { return BasicPayment + Tax; }
+        }
+
+        public override string ToString()
+        {
+            return "Basic payment: "
+                + BasicPayment.ToString("F2", CultureInfo.InvariantCulture)
+                + "\nTax: "
+                + Tax.ToString("F2", CultureInfo.InvariantCulture)
+                + "\nTotal Payment: "
+                + TotalPayment.ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
