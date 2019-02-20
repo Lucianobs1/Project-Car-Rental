@@ -10,15 +10,15 @@ namespace ProjectCarRental.Entites
         public double BasicPayment { get; set; }
         public double Tax { get; set; }
 
-        public Invoice(double basicPayment, double tax, double totalPayment)
+        public Invoice(double basicPayment, double tax)
         {
             BasicPayment = basicPayment;
             Tax = tax;
         }
 
-        public double TotalPayment {
+        public double TotalPayment() {
 
-            get { return BasicPayment + Tax; }
+             return BasicPayment + Tax; 
         }
 
         public override string ToString()
@@ -28,7 +28,7 @@ namespace ProjectCarRental.Entites
                 + "\nTax: "
                 + Tax.ToString("F2", CultureInfo.InvariantCulture)
                 + "\nTotal Payment: "
-                + TotalPayment.ToString("F2", CultureInfo.InvariantCulture);
+                + TotalPayment().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
